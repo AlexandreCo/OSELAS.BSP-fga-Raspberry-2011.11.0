@@ -1,4 +1,4 @@
-## SECTION=project
+## SECTION=gdcplugins
 
 menuconfig ECOWATT
 	tristate

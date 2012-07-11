@@ -80,9 +80,7 @@ $(STATEDIR)/ecowatt.targetinstall:
 	@$(call install_copy, ecowatt, 0, 0, 0755, $(ECOWATT_DIR)/ecowatt, /bin/ecowatt,n)
 
 ifdef PTXCONF_ECOWATT_GDC
-	@$(call install_archive, ecowatt, 0, 0, $(PTXDIST_WORKSPACE)/local_src/ecowatt_gdc-1.0/ecowatt_gdc-1.0.tgz,)
-	@$(call install_alternative, ecowatt, 0, 0, 0700, /usr/bin/display_ecowatt.sh, n);
-	@$(call install_alternative, ecowatt, 0, 0, 0700, /etc/crontabrc/rcj/ecowatt.sh, n);
+	@$(call install_tree, ecowatt, 0, 0,    $(PTXDIST_WORKSPACE)/local_src/ecowatt_gdc-1.0/,/)
 endif
 
 	@$(call install_finish, ecowatt)
