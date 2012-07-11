@@ -1,0 +1,11 @@
+## SECTION=gdcplugins
+
+config FREEBOX
+	tristate
+	depends on GDC
+	select GNUPLOT
+	prompt "freebox gdc plugin                "
+	help
+	  permet de recuperer et d'afficher des infos sur le fonctionnement freebox
+	  dans les pages web de gdc :
+	  ping google toutes les 10min pour connaitre et logger l'état de la connection 
