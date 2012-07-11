@@ -1,0 +1,24 @@
+## SECTION=gdcplugins
+
+menuconfig RF2TXT
+	tristate
+	prompt "demon rf2txt                   "
+	help
+	  demon rf2txt permettant de recevoir les infos des capteurs et les enregistrer dans /var/www/
+
+if RF2TXT
+
+config RF2TXT_STARTUPSCRIPT
+	bool "install /etc/init.d/rf2txt"
+	depends on RF2TXT
+	help
+	  This installs /etc/init.d/rf2txt startup script
+
+config RF2TXT_STARTUPLINK
+	string
+	prompt "rf2txt startup link"
+	default "S99rf2txt"
+	depends on RF2TXT_STARTUPSCRIPT
+	help
+	  This installs /etc/init.d/rf2txt startup script
+endif
