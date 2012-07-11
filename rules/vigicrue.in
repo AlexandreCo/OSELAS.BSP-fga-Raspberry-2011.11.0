@@ -1,0 +1,11 @@
+## SECTION=gdcplugins
+
+config VIGICRUE
+	tristate
+	depends on GDC
+	select GNUPLOT
+	prompt "vigicrue gdc plugin                 "
+	help
+	  permet de recuperer et d'afficher les infos de vigicrue via le web 
+	  dans les pages web de gdc
+
