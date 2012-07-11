@@ -27,6 +27,7 @@
 #include <errno.h>
 #include <sys/time.h>
 #include <time.h>
+#include <stdlib.h>
 #define MAX_BUF	1024
 #define MAX_DEV	30
 #define MIN_DETECT	7
@@ -136,7 +137,6 @@ int iGetData(int fd,const unsigned char * aucTx,int iTxLen, unsigned char pucRx[
 {
 	struct sigaction action;
 	int i=0,ret;
-	int iTimeout=RS_TIMEOUT;
 	int iOut=0;
 	unsigned int uiRead=0;
 	unsigned char buf[MAX_BUF];
@@ -200,7 +200,7 @@ int iTestCx(int fd)
 	//trame ping
 	const unsigned char aucTestCx[]={0x45,0x4C,0x01,0x00};
 	unsigned char  aucRecu[MAX_BUF];
-	int i=0,ret=-1;
+	int ret=-1;
 
 	bzero(aucRecu, sizeof(unsigned char)*MAX_BUF);
 	if(iGetData(fd,aucTestCx,sizeof(aucTestCx),aucRecu)==4)
@@ -414,7 +414,7 @@ int iGetDate(int fd)
 
 	unsigned char aucFunction[]={0x45,0x4C,0x08,0x00};
 	unsigned char  aucRecu[MAX_BUF];
-	int i=0,ret=-1,irecu;
+	int ret=-1,irecu;
 	pvPrint1("Get EcoWatt Time\n");
 
 	bzero(aucRecu, sizeof(unsigned char)*MAX_BUF);
@@ -477,10 +477,8 @@ void vStop(int fd)
 }
 static int iRun()
 {
-	int fd=0,i=0,j,ret=0,try;
+	int fd=0,i=0,ret=0,try;
 	int iDay,iHour;
-	//unsigned char buf[MAX_BUF];
-	struct termios term;
 
 	fd=open(_acDevice,O_RDWR);
 	if(fd<=0)
@@ -532,7 +530,7 @@ static int iRun()
 			}
 			else
 			{
-				fprintf(fp,";",iHour);
+				fprintf(fp,";");
 				for(iDay=0;iDay<NB_JOUR;iDay++)
 				{
 					struct tm *tb;
