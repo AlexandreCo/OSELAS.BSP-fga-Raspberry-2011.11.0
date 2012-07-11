@@ -71,8 +71,8 @@ $(STATEDIR)/gdc-src.targetinstall:
 	@$(call install_fixup, gdc-src,AUTHOR,"Alexandre Coffignal <alexandre.github@gmail.com>")
 	@$(call install_fixup, gdc-src,DEPENDS,)
 	@$(call install_fixup, gdc-src,DESCRIPTION,missing)
-	@$(call install_archive, gdc-src, 0, 0, $(PTXDIST_WORKSPACE)/local_src/gdc-1.0/gdc-1.0.tgz,)
-
+	@$(call install_tree, gdc-src, 0, 0, $(PTXDIST_WORKSPACE)/local_src/gdc-1.0/var,/var)
+	
 	@$(call install_finish, gdc-src)
 
 	@$(call touch)

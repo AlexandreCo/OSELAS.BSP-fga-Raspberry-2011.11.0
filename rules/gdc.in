@@ -1,11 +1,15 @@
 ## SECTION=project
 
-config GDC
+
+menuconfig GDC
 	bool
 	select PHP5
+	select CRONTAB_RC
 	prompt "php datacenter                   "
 	help
 	  php datacenter permet de mettre en place une interface web permettant de recevoir 
 	  et afficher des infos diverses
-
-
+	  
+if GDC
+source "generated/gdcplugins.in"
+endif
