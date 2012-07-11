@@ -1,0 +1,13 @@
+## SECTION=project
+
+config CRONTAB_RC
+	tristate
+	select BUSYBOX_CROND
+	prompt "crontab rc scripts"
+	help
+	  surcouche à la crontab: tous les scripts present dans :
+	  	rc10m sont executé toutes les 10 min
+	  	rch sont executé toutes les heures
+	  	rcj sont executé tous les jours 
+	  	
+

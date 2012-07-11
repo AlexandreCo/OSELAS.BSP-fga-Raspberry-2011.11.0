@@ -1,0 +1,11 @@
+#mm hh jj MMM JJJ tache > log
+#Toutes les 10 min
+*/10 * * * * /usr/bin/crontabrc.sh "MIN"
+
+#Toutes les heure
+00 * * * * /usr/bin/crontabrc.sh "HOUR"
+
+#Tous les jours (5h du matin)
+00 05 * * * /usr/bin/crontabrc.sh "DAY"
+
+
